@@ -13,7 +13,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 # 读取停用词
 def read_stopword(filename):
     stopword = []
-    fp = open(filename, 'r',encoding='UTF-8')
+    fp = open(filename, 'r',encoding='unicode_escape')
     for line in fp.readlines():
         stopword.append(line.replace('\n', ''))
     fp.close()
@@ -51,10 +51,10 @@ def text_vec(data):
  
  
 if __name__ == '__main__':
-    data = pd.read_csv('../../Easy_Lstm_Cnn/data/cnews.test.txt', names=['title', 'content'], sep='\t')  # (10000, 2)
+    data = pd.read_csv('/home/renlei/dev/PyProjects/cnews/cnews.test.txt', names=['title', 'content'], sep='\t')  # (10000, 2)
     data = data.head(50)
  
-    stopword = read_stopword('../../Easy_Lstm_Cnn/data/stopwords.txt')
+    stopword = read_stopword('/home/renlei/dev/PyProjects/cnews/stopwords.txt')
     data = cut_data(data, stopword)
  
     fea_vec = text_vec(data)
