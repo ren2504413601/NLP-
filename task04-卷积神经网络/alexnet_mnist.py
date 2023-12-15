@@ -1,7 +1,9 @@
 # -*- coding=UTF-8 -*-  
 '''
 参考：https://baike.baidu.com/item/AlexNet/22689612
-
+基于 TensorFlow 1.x 
+'''
+'''
 import tensorflow as tf
 
 # Import MNIST data
@@ -123,11 +125,13 @@ with tf.Session() as sess:
     print ("Optimization Finished!"  )
     # 计算测试精度  
     print ("Testing Accuracy:", sess.run(accuracy, feed_dict={x: mnist.test.images[:256], y: mnist.test.labels[:256], keep_prob: 1.})  )
-    '''
+'''
 
 '''
 https://www.jianshu.com/p/a66c67594d16?utm_campaign=haruki&utm_content=note&utm_medium=reader_share&utm_source=qq
-'''    
+基于 tensorflow 2.x
+'''  
+ 
 import numpy as np
 import keras
 from keras.datasets import mnist

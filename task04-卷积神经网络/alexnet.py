@@ -3,12 +3,15 @@
 参考：https://baike.baidu.com/item/AlexNet/22689612
 		https://zhuanlan.zhihu.com/p/22659166
 代码忽略了部分卷积层，全连接层使用了特定的权重
+基于 TensorFlow 1.x 
 '''
 import tensorflow as tf
 
 # Import MNIST data
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("./datasets/MNIST_data", one_hot=True)
+
+
 
 # # 输入数据  
 # import input_data  

@@ -12,6 +12,9 @@ import tensorflow as tf
         （5）使用CUDA加速深度卷积网络的训练
         （6）数据增强，更多元的数据输入防止CNN陷入过拟合
 '''
+'''
+支持 tensorflow 1.x，未支持 tensorflow 2.x
+'''
 
 batch_size = 32
 num_batches = 100

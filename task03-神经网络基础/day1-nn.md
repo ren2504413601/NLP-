@@ -7,12 +7,15 @@ $$ y=\sum_{i} w_i x_i+b $$
 其中$w_i,b \in R$是模型参数
 
 **线性可分**
+
 ![线性可分](线性可分.png)
+
 **线性不可分**
+
 ![线性不可分](线性不可分.png)
 
 #### 二、激活函数去线性化 
-Tensorflow 提供了7种不同的激活函数，tf.nn.relu,tf.sigmoid,tf.tanh是最常用的几个
+Tensorflow 提供了7种不同的激活函数，`tf.nn.relu`,`tf.sigmoid`,`tf.tanh`是最常用的几个
 ###### 2.1 sigmoid函数
 $$f(x)=\frac{1}{1+e^{-x}}$$
 函数将取值$(-\infty,\infty)$的数映射到$(0,1)$的数,图形如下：
@@ -45,19 +48,20 @@ $$f(x)=\frac{1-e^{-2x}}{1+e^{-2x}}$$
 下面考虑如何将神经网络前向传播结果转化为概率分布。
 
 **Softmax回归**
+
 假设原始的神经网络输出为$y_1,y_2,...,y_n$,经过Softmax回归的输出为：
 $$ Softmax(y)_i=y_i^{\prime}= \frac {e^{y_i}}{\sum_{i=1}^{n} e^{y_i}} $$
 example:假设有一个三分类问题，某个样例正确答案是$(1,0,0)$，某模型经过Softmax回归后的预测答案是$(0.5,0.4,0.1)$，那么预测距离和正确答案之间的交叉熵为：
 $$ H((1,0,0)(0.5,0.4,0.1))=-(1 \times  \log{0.5}+0 \times \log{0.4}+0 \times \log{0.1}) \approx 0.3$$
 
-**tensorflow交叉熵使用：**
+**tensorflow中交叉熵使用：**
 
-[1] tf.nn.softmax_cross_entropy_with_logits(labels=y_,logits=y)
+- `tf.nn.softmax_cross_entropy_with_logits(labels=y_,logits=y)`
 
     labels: Each vector along the class dimension should hold a valid probability distribution
     logits: Per-label activations, typically a linear output. These activation energies are interpreted as unnormalized log probabilities.
 
-[2].tf.nn.sparse_softmax_cross_entropy_with_logits(labels=y_,logits=y)
+- `tf.nn.sparse_softmax_cross_entropy_with_logits(labels=y_,logits=y)`
 
     labels: Tensor of shape [d_0, d_1, ..., d_{r-1}] (where r is rank of labels and result) and dtype int32 or int64. Each entry in labels must be an index in [0, num_classes). Other values will raise an exception when this op is run on CPU, and return NaN for corresponding loss and gradient rows on GPU.
     logits: Per-label activations (typically a linear output) of shape [d_0, d_1, ..., d_{r-1}, num_classes] and dtype float16, float32, or float64. These activation energies are interpreted as unnormalized log probabilities.
@@ -66,7 +70,8 @@ $$ H((1,0,0)(0.5,0.4,0.1))=-(1 \times  \log{0.5}+0 \times \log{0.4}+0 \times \lo
 最常用的损失函数是均方误差(MSE.mean squared error)
 $$ mse(y,y^{\prime})=\frac {\sum_{i=1}^{n}(y_i-y_i^{\prime})^2}{n} $$
 
-**tensorflow实现**：mse=tf.reduce_mean(tf.square(y_-y))
+**tensorflow实现**：
+`mse=tf.reduce_mean(tf.square(y_-y))`
 
 #### 四、神经网络优化算法
 ###### 4.1 Batch gradient descent
@@ -87,20 +92,15 @@ Mini-batch gradient descent finally takes the best of both worlds and performs a
 学习率既不能过大，也不能过小
 
 **tensorflow指数衰减法：**
-learning_rate=tf.train.exponential_decay()
+`learning_rate=tf.train.exponential_decay()`
 ###### 5.2 过拟合问题
 **正则化**
 
 假设损失函数是$J(\theta)$，正则化考虑优化时不是直接优化$J(\theta)$，而是优化$J(\theta)+ \lambda R(w)$。
 
-其中$R(w)$刻画的是模型的复杂程度，$L1$正则化：$R(w)=\| w \|_1=\sum_i  |{w_i}|$；$L2$正则化：$R(w)=\| w \|_2^2=\sum_i  |{w_i}|$
+其中$R(w)$刻画的是模型的复杂程度，
 
+$L1$正则化：$R(w)=\| w \|_1=\sum_i  |{w_i}|$；
 
-```python
+$L2$正则化：$R(w)=\| w \|_2^2=\sum_i  |{w_i}|$
 
-```
-
-
-```python
-
-```

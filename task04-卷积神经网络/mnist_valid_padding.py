@@ -11,20 +11,20 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
-from keras.models import Sequential
-from keras.layers import Conv2D, Lambda, MaxPooling2D
-from keras.layers import Dense, Dropout, Flatten # core layers
-from keras.layers.normalization import BatchNormalization
-from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, Lambda, MaxPooling2D
+from tensorflow.keras.layers import Dense, Dropout, Flatten # core layers
+from tensorflow.keras.layers import BatchNormalization
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from keras.utils.np_utils import to_categorical
 
 epochs = 5
 batch_size = 64
 
 ## 数据预处理
-train=pd.read_csv("./CNN for MINST dataset/train.csv")
-test=pd.read_csv("./CNN for MINST dataset/test.csv")
-sub=pd.read_csv("./CNN for MINST dataset/sample_submission.csv")#submisson file
+train=pd.read_csv("/home/renlei/dev/PyProjects/NLP-learning/task04-卷积神经网络/CNN_for_MINST_dataset/train.csv")
+test=pd.read_csv("/home/renlei/dev/PyProjects/NLP-learning/task04-卷积神经网络/CNN_for_MINST_dataset/test.csv")
+sub=pd.read_csv("/home/renlei/dev/PyProjects/NLP-learning/task04-卷积神经网络/CNN_for_MINST_dataset/sample_submission.csv")#submisson file
 print("Data are Ready!!")
 
 # feed features and labels
@@ -143,8 +143,8 @@ mat = confusion_matrix(Y_test, Y_pred) # Confusion matrix
 # Plot Confusion matrix
 sns.heatmap(mat.T, square=True, annot=True, cbar=False, cmap=plt.cm.Blues)
 plt.xlabel('Predicted Values')
-plt.ylabel('True Values');
-plt.show();
+plt.ylabel('True Values')
+plt.show()
 
 ## Prediction and submition
 # Prediction validation results
@@ -159,5 +159,5 @@ for i, ax in enumerate(axis.flat):
 # Prediciting the Outputs
 pred = model.predict_classes(test_x, verbose=1)
 sub['Label'] = pred
-sub.to_csv("./CNN for MINST dataset/CNN_keras_sub.csv", index=False)
+sub.to_csv("/home/renlei/dev/PyProjects/NLP-learning/task04-卷积神经网络/CNN_for_MINST_dataset/CNN_keras_sub.csv", index=False)
 sub.head()	
