@@ -1,2 +1,2 @@
 # NLP-learning
-2 weeks NLP learning process
+记录 NLP 学习过程中的一些模型的实现和原理，源代码主要来源于官方社区、书本知识以及日常检索的一些博客
