@@ -2,8 +2,11 @@ task01-文本分类/.ipynb_checkpoints/*
 task01-文本分类/imdb.npz
 task02-词向量/.ipynb_checkpoints/one-hot2word-checkpoint.ipynb
 task02-词向量/.ipynb_checkpoints/one-hot-checkpoint.ipynb
-*.doc
+问题记录.doc
 task03-神经网络基础/.ipynb_checkpoints/day2-FastText-checkpoint.ipynb
 task03-神经网络基础/.ipynb_checkpoints/day1-nn-checkpoint.ipynb
 task03-神经网络基础/感知机/.ipynb_checkpoints/感知机和单隐藏层网络的模拟“异或运算”（XOR）-checkpoint.ipynb
 17flowers/
+task07-bert/.ipynb_checkpoints
+task07-bert/bert-finetuned-sem_eval-english
+.data/
